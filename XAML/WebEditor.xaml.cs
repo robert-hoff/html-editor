@@ -77,12 +77,12 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         private void RibbonButtonNew_Click(object sender, RoutedEventArgs e)
         {
-            Gui.newdocument();
+            Gui.NewDocument();
         }
 
         private void RibbonButtonOpen_Click(object sender, RoutedEventArgs e)
         {
-            Gui.newdocumentFile();
+            Gui.NewDocumentFile();
         }
 
         private void RibbonButtonOpenweb_Click(object sender, RoutedEventArgs e)
@@ -145,7 +145,7 @@ namespace WPF_WYSIWYG_HTML_Editor
             Gui.webBrowser = webBrowserEditor;
             Gui.htmlEditor = HtmlEditor1;
             Initialisation.webeditor = this;
-            Gui.newdocument();
+            Gui.NewDocument();
             
             Initialisation.RibbonComboboxFontsInitialisation();
             Initialisation.RibbonComboboxFontSizeInitialisation();
