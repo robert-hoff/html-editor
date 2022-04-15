@@ -1,6 +1,7 @@
 ﻿using mshtml;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace WPF_WYSIWYG_HTML_Editor
 {
@@ -43,21 +46,42 @@ namespace WPF_WYSIWYG_HTML_Editor
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = @"C:\";
-                openFileDialog.Filter = "jpg files (*.jpg)|*.jpg|All files (*.png.*)|*.png|All files (*.gif)|*.gif|All files (*.*)|*.*";
-                openFileDialog.RestoreDirectory = true;
 
-                System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    link.Text = openFileDialog.FileName;
-                }
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = GetImageFilter(),
+                FilterIndex = 2,
+                RestoreDirectory = true,
+            };
+            DialogResult result = openFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                link.Text = openFileDialog.FileName;
             }
         }
+
+
+        private static string GetImageFilter()
+        {
+            return
+                "All Files (*.*)|*.*" +
+                "|All Pictures (*.emf;*.wmf;*.jpg;*.jpeg;*.jfif;*.jpe;*.png;*.bmp;*.dib;*.rle;*.gif;*.emz;*.wmz;*.tif;*.tiff;*.svg;*.ico)" +
+                    "|*.emf;*.wmf;*.jpg;*.jpeg;*.jfif;*.jpe;*.png;*.bmp;*.dib;*.rle;*.gif;*.emz;*.wmz;*.tif;*.tiff;*.svg;*.ico" +
+                "|Windows Enhanced Metafile (*.emf)|*.emf" +
+                "|Windows Metafile (*.wmf)|*.wmf" +
+                "|JPEG File Interchange Format (*.jpg;*.jpeg;*.jfif;*.jpe)|*.jpg;*.jpeg;*.jfif;*.jpe" +
+                "|Portable Network Graphics (*.png)|*.png" +
+                "|Bitmap Image File (*.bmp;*.dib;*.rle)|*.bmp;*.dib;*.rle" +
+                "|Compressed Windows Enhanced Metafile (*.emz)|*.emz" +
+                "|Compressed Windows MetaFile (*.wmz)|*.wmz" +
+                "|Tag Image File Format (*.tif;*.tiff)|*.tif;*.tiff" +
+                "|Scalable Vector Graphics (*.svg)|*.svg" +
+                "|Icon (*.ico)|*.ico";
+        }
+
+
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
