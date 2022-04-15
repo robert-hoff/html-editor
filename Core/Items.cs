@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WPF_WYSIWYG_HTML_Editor
+﻿namespace WPF_WYSIWYG_HTML_Editor
 {
     public class Items
     {
-        public Items()
-        { }
+        public string Id { get; set; }
+        public string Value { get; set; }
 
         public Items(string id, string value)
         {
-            this.Value = value;
             this.Id = id;
+            this.Value = value;
         }
-        public string Id { get; set; }
-        public string Value { get; set; }
     }
 }
+
