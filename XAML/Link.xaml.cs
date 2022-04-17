@@ -1,24 +1,13 @@
-﻿using mshtml;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using mshtml;
 
 namespace WPF_WYSIWYG_HTML_Editor
 {
     /// <summary>
     /// Interaction logic for Link.xaml
     /// </summary>
-    public partial class Link : Window,IDisposable
+    public partial class Link : Window, IDisposable
     {
         public HTMLDocument doc;
 
@@ -28,7 +17,7 @@ namespace WPF_WYSIWYG_HTML_Editor
             doc = Doc;
         }
 
-        private void addLink_Initialized(object sender, EventArgs e)
+        private void AddLink_Initialized(object sender, EventArgs e)
         {
             description.Focus();
         }
@@ -46,7 +35,7 @@ namespace WPF_WYSIWYG_HTML_Editor
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
-            { 
+            {
                 openFileDialog.InitialDirectory = @"C:\";
                 openFileDialog.Filter = "All files (*.*)|*.*";
                 openFileDialog.RestoreDirectory = true;
@@ -69,8 +58,5 @@ namespace WPF_WYSIWYG_HTML_Editor
         {
             GC.SuppressFinalize(this);
         }
-
-
-
     }
 }

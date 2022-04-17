@@ -1,7 +1,7 @@
-﻿<Window x:Name="addLink" x:Class="WPF_WYSIWYG_HTML_Editor.Link"
+<Window x:Name="addLink" x:Class="WPF_WYSIWYG_HTML_Editor.Link"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Insert link" Height="231" Width="600.087" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/WPF WYSIWYG HTML Editor;component/Resources/web.png" Initialized="addLink_Initialized">
+        Title="Insert link" Height="231" Width="600.087" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/WPF WYSIWYG HTML Editor;component/Resources/web.png" Initialized="AddLink_Initialized">
     <Grid>
         <TextBox x:Name="description" HorizontalAlignment="Left" Height="24" Margin="19,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="550" />
         <Label Content="Enter text to display for the link :" HorizontalAlignment="Left" Height="25" Margin="14,10,0,0" VerticalAlignment="Top" Width="243" />

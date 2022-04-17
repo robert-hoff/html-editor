@@ -1,8 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using mshtml;
 
 namespace WPF_WYSIWYG_HTML_Editor
@@ -11,7 +6,7 @@ namespace WPF_WYSIWYG_HTML_Editor
     {
         public static HTMLDocument doc;
 
-        public static void bold()
+        public static void Bold()
         {
             if (doc != null)
             {
@@ -99,7 +94,5 @@ namespace WPF_WYSIWYG_HTML_Editor
                 doc.execCommand("Indent", false, null);
             }
         }
-
-
     }
 }

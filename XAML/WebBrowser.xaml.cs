@@ -1,18 +1,6 @@
-﻿using mshtml;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using mshtml;
 
 namespace WPF_WYSIWYG_HTML_Editor
 {
@@ -29,27 +17,27 @@ namespace WPF_WYSIWYG_HTML_Editor
             InitializeComponent();
         }
 
-        public void newWb(string url)
+        public void NewWb(string url)
         {
             if (webBrowser != null)
             {
-                webBrowser.LoadCompleted -= completed;
+                webBrowser.LoadCompleted -= Completed;
                 webBrowser.Dispose();
                 gridwebBrowser.Children.Remove(webBrowser);
             }
-            
+
             if (doc != null)
             {
                 doc.clear();
             }
 
             webBrowser = new WebBrowser();
-            webBrowser.LoadCompleted += completed;
+            webBrowser.LoadCompleted += Completed;
             gridwebBrowser.Children.Add(webBrowser);
 
             Script.HideScriptErrors(webBrowser, true);
-            
-            if (url=="")
+
+            if (url == "")
             {
                 webBrowser.NavigateToString(Properties.Resources.New);
                 doc = webBrowser.Document as HTMLDocument;
@@ -61,19 +49,17 @@ namespace WPF_WYSIWYG_HTML_Editor
             {
                 webBrowser.Navigate(url);
             }
-            
-            
+
+
             doc = webBrowser.Document as HTMLDocument;
             Format.doc = doc;
         }
 
-        private void completed(object sender, NavigationEventArgs e)
+        private void Completed(object sender, NavigationEventArgs e)
         {
             doc = webBrowser.Document as HTMLDocument;
             doc.designMode = "On";
         }
 
-
     }
-    
 }

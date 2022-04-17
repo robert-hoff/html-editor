@@ -1,10 +1,5 @@
-﻿using mshtml;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media;
-
 
 namespace WPF_WYSIWYG_HTML_Editor
 {
@@ -12,12 +7,12 @@ namespace WPF_WYSIWYG_HTML_Editor
     {
         public WebEditor()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void SettingsBold_Click(object sender, RoutedEventArgs e)
         {
-            Format.bold();            
+            Format.Bold();
         }
 
         private void SettingsItalic_Click(object sender, RoutedEventArgs e)
@@ -67,12 +62,12 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         private void SettingsOutIdent_Click(object sender, RoutedEventArgs e)
         {
-            Format.Outdent();            
+            Format.Outdent();
         }
 
         private void SettingsIdent_Click(object sender, RoutedEventArgs e)
         {
-            Format.Indent();  
+            Format.Indent();
         }
 
         private void RibbonButtonNew_Click(object sender, RoutedEventArgs e)
@@ -87,7 +82,7 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         private void RibbonButtonOpenweb_Click(object sender, RoutedEventArgs e)
         {
-            webBrowserEditor.newWb(@"https://www.codeproject.com/tips/870549/csharp-wpf-wysiwyg-html-editor/");
+            webBrowserEditor.NewWb(@"https://www.codeproject.com/tips/870549/csharp-wpf-wysiwyg-html-editor/");
         }
 
         private void SettingsFontColor_Click(object sender, RoutedEventArgs e)
@@ -117,7 +112,7 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         private void RibbonComboboxFonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Gui.RibbonComboboxFonts(RibbonComboboxFonts);            
+            Gui.RibbonComboboxFonts(RibbonComboboxFonts);
         }
 
         private void RibbonComboboxFontHeight_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -146,7 +141,7 @@ namespace WPF_WYSIWYG_HTML_Editor
             Gui.htmlEditor = HtmlEditor1;
             Initialisation.webeditor = this;
             Gui.NewDocument();
-            
+
             Initialisation.RibbonComboboxFontsInitialisation();
             Initialisation.RibbonComboboxFontSizeInitialisation();
             Initialisation.RibbonComboboxFormatInitionalisation();

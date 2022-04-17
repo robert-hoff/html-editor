@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPF_WYSIWYG_HTML_Editor.Image"
+<Window x:Class="WPF_WYSIWYG_HTML_Editor.Image"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Image" Height="226" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/WPF WYSIWYG HTML Editor;component/Resources/web.png" Initialized="Window_Initialized">

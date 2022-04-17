@@ -1,8 +1,10 @@
-﻿using mshtml;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using mshtml;
+
 
 namespace WPF_WYSIWYG_HTML_Editor
 {
@@ -29,9 +31,13 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         public static List<string> RibbonComboboxFontSizeInitialisation()
         {
+
+            Debug.WriteLine($"je;;p");
+
             List<string> items = new List<string>();
             for (int x = 1; x <= 7; x++)
             {
+
                 items.Add(x.ToString());
             }
             return items;
@@ -44,7 +50,7 @@ namespace WPF_WYSIWYG_HTML_Editor
             {
                 System.Windows.Media.Color col = DialogBox.Pick();
                 string colorstr = string.Format("#{0:X2}{1:X2}{2:X2}", col.R, col.G, col.B);
-                _ = webBrowser.doc.execCommand("ForeColor", false, colorstr);
+                webBrowser.doc.execCommand("ForeColor", false, colorstr);
             }
         }
 
@@ -63,7 +69,7 @@ namespace WPF_WYSIWYG_HTML_Editor
         {
             using (Link link = new Link(webBrowser.doc))
             {
-                _ = link.ShowDialog();
+                link.ShowDialog();
             }
         }
 
@@ -71,7 +77,7 @@ namespace WPF_WYSIWYG_HTML_Editor
         {
             using (Image image = new Image(webBrowser.doc))
             {
-                _ = image.ShowDialog();
+                image.ShowDialog();
             }
         }
 
@@ -90,7 +96,7 @@ namespace WPF_WYSIWYG_HTML_Editor
         {
             if (webBrowser.webBrowser.Document is HTMLDocument doc)
             {
-                _ = doc.execCommand("FontName", false, RibbonComboboxFonts.SelectedItem.ToString());
+                doc.execCommand("FontName", false, RibbonComboboxFonts.SelectedItem.ToString());
             }
         }
 
@@ -98,18 +104,18 @@ namespace WPF_WYSIWYG_HTML_Editor
         {
             if (webBrowser.webBrowser.Document is IHTMLDocument2 doc)
             {
-                _ = doc.execCommand("FontSize", false, RibbonComboboxFontHeight.SelectedItem);
+                doc.execCommand("FontSize", false, RibbonComboboxFontHeight.SelectedItem);
             }
         }
 
         public static void RibbonComboboxFormat(ComboBox RibbonComboboxFormat)
         {
-            string ID = ((Items)RibbonComboboxFormat.SelectedItem).Value;
+            string ID = ((Items) RibbonComboboxFormat.SelectedItem).Value;
 
             webBrowser.doc = webBrowser.webBrowser.Document as HTMLDocument;
             if (webBrowser.doc != null)
             {
-                _ = webBrowser.doc.execCommand("FormatBlock", false, ID);
+                webBrowser.doc.execCommand("FormatBlock", false, ID);
             }
         }
 
@@ -138,7 +144,7 @@ namespace WPF_WYSIWYG_HTML_Editor
 
         public static void NewDocument()
         {
-            webBrowser.newWb("");
+            webBrowser.NewWb("");
         }
 
         public static void NewDocumentFile()
@@ -147,7 +153,7 @@ namespace WPF_WYSIWYG_HTML_Editor
             string fileContent = DialogBox.SelectFile();
             if (fileContent != null)
             {
-                webBrowser.newWb(fileContent);
+                webBrowser.NewWb(fileContent);
             }
         }
     }

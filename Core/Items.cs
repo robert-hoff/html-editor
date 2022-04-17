@@ -1,4 +1,4 @@
-﻿namespace WPF_WYSIWYG_HTML_Editor
+namespace WPF_WYSIWYG_HTML_Editor
 {
     public class Items
     {

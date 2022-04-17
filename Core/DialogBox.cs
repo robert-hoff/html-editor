@@ -1,9 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace WPF_WYSIWYG_HTML_Editor
 {
     public static class DialogBox
@@ -29,7 +23,6 @@ namespace WPF_WYSIWYG_HTML_Editor
             return col;
         }
 
-
         public static string SelectFile()
         {
             using (System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog())
@@ -38,15 +31,9 @@ namespace WPF_WYSIWYG_HTML_Editor
                 openFileDialog.RestoreDirectory = true;
 
                 System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    return openFileDialog.FileName;
-                }
-                return null;
+                return result == System.Windows.Forms.DialogResult.OK ? openFileDialog.FileName : null;
             }
-
         }
-
 
         public static string SaveFile()
         {
@@ -55,16 +42,8 @@ namespace WPF_WYSIWYG_HTML_Editor
                 SaveFileDialog.Filter = "Htm files (*.htm)|*.htm|Html files (*.html)|*.html";
                 SaveFileDialog.FilterIndex = 2;
                 SaveFileDialog.RestoreDirectory = true;
-
-                if (SaveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    return SaveFileDialog.FileName;
-                }
-                return "";                
+                return SaveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK ? SaveFileDialog.FileName : "";
             }
-
         }
-
-
     }
 }
